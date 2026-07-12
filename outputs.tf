@@ -1,3 +1,7 @@
+output "storage_mover_agents_id" {
+  description = "Map of id values across all storage_mover_agents, keyed the same as var.storage_mover_agents"
+  value       = { for k, v in azurerm_storage_mover_agent.storage_mover_agents : k => v.id }
+}
 output "storage_mover_agents_arc_virtual_machine_id" {
   description = "Map of arc_virtual_machine_id values across all storage_mover_agents, keyed the same as var.storage_mover_agents"
   value       = { for k, v in azurerm_storage_mover_agent.storage_mover_agents : k => v.arc_virtual_machine_id }
